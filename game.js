@@ -11,7 +11,7 @@ const playerConfig = {
   width: 44,
   height: 56,
   x: 90,
-  y: 258,
+  y: 274,
   vy: 0,
   grounded: true,
 };
@@ -39,7 +39,7 @@ function startGame() {
   state.obstacles = [];
 
   playerConfig.x = 90;
-  playerConfig.y = 258;
+  playerConfig.y = 274;
   playerConfig.vy = 0;
   playerConfig.grounded = true;
 
@@ -93,8 +93,8 @@ function update(delta) {
   playerConfig.vy += 1200 * delta;
   playerConfig.y += playerConfig.vy * delta;
 
-  if (playerConfig.y >= 258) {
-    playerConfig.y = 258;
+  if (playerConfig.y >= 274) {
+    playerConfig.y = 274;
     playerConfig.vy = 0;
     playerConfig.grounded = true;
   }
@@ -119,8 +119,8 @@ function update(delta) {
     }
 
     const playerRect = {
-      left: playerConfig.x,
-      right: playerConfig.x + playerConfig.width,
+      left: 90 + playerConfig.x,
+      right: 90 + playerConfig.x + playerConfig.width,
       top: playerConfig.y,
       bottom: playerConfig.y + playerConfig.height,
     };
@@ -128,9 +128,11 @@ function update(delta) {
     const obstacleRect = {
       left: obstacle.x,
       right: obstacle.x + 36,
-      top: 330,
-      bottom: 374,
+      top: 286,
+      bottom: 330,
     };
+
+    console.log('Player:', playerRect, 'Obstacle x:', obstacle.x, 'Obstacle:', obstacleRect);
 
     const hit =
       playerRect.left < obstacleRect.right &&
