@@ -1,11 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    ようこそ私のページへ！
-</body>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>横スクロール・アクション MVP</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>横スクロール・アクション MVP</h1>//
+      <p class="subtitle">左右移動とジャンプで障害物を避けよう</p>
+
+      <div class="hud">
+        <span id="score">スコア: 0</span>
+        <span id="status">準備中</span>
+      </div>
+
+      <section id="game" class="game" aria-label="横スクロールゲーム">
+        <div class="sky"></div>
+        <div class="mountain mountain-a"></div>
+        <div class="mountain mountain-b"></div>
+        <div class="ground"></div>
+        <div id="player" class="player"></div>
+        <div id="obstacles" class="obstacles"></div>
+        <div id="message" class="message">Space でスタート</div>
+      </section>
+
+      <div class="controls">
+        <div class="touch-controls" aria-label="タッチ操作">
+          <button class="control-btn" data-control="left" type="button" aria-label="左へ移動">←</button>
+          <button class="control-btn jump-btn" data-control="jump" type="button" aria-label="ジャンプ">↑</button>
+          <button class="control-btn" data-control="right" type="button" aria-label="右へ移動">→</button>
+        </div>
+        <button id="restartBtn" type="button">もう一度遊ぶ</button>
+        <p class="hint">← → / A D で移動、Space でジャンプ。タッチ操作でも遊べます。</p>
+      </div>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
 </html>
